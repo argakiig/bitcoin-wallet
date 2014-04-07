@@ -85,20 +85,17 @@ public final class PaymentProtocol
 			final Protos.PaymentRequest paymentRequest = Protos.PaymentRequest.parseFrom(serializedPaymentRequest);
 
 			final String pkiName;
-			final String pkiOrgName;
 			final String pkiCaName;
 			if (!"none".equals(paymentRequest.getPkiType()))
 			{
 				// implicitly verify PKI signature
 				final PkiVerificationData verificationData = new PaymentSession(paymentRequest, true).pkiVerificationData;
-				pkiName = verificationData.name;
-				pkiOrgName = verificationData.orgName;
+				pkiName = verificationData.displayName;
 				pkiCaName = verificationData.rootAuthorityName;
 			}
 			else
 			{
 				pkiName = null;
-				pkiOrgName = null;
 				pkiCaName = null;
 			}
 
@@ -125,7 +122,7 @@ public final class PaymentProtocol
 			final String paymentUrl = paymentDetails.hasPaymentUrl() ? paymentDetails.getPaymentUrl() : null;
 			final byte[] merchantData = paymentDetails.hasMerchantData() ? paymentDetails.getMerchantData().toByteArray() : null;
 
-			final PaymentIntent paymentIntent = new PaymentIntent(PaymentIntent.Standard.BIP70, pkiName, pkiOrgName, pkiCaName,
+			final PaymentIntent paymentIntent = new PaymentIntent(PaymentIntent.Standard.BIP70, pkiName, pkiCaName,
 					outputs.toArray(new PaymentIntent.Output[0]), memo, paymentUrl, merchantData, null);
 
 			if (paymentIntent.hasPaymentUrl() && !paymentIntent.isSupportedPaymentUrl())
