@@ -3,8 +3,8 @@
 	xmlns:tools="http://schemas.android.com/tools"
 	package="de.schildbach.wallet_test"
 	android:installLocation="internalOnly"
-	android:versionCode="165"
-	android:versionName="3.44-test" >
+	android:versionCode="170"
+	android:versionName="3.49-test" >
 
 	<uses-sdk
 		android:minSdkVersion="10"
@@ -162,7 +162,7 @@
 
 				<category android:name="android.intent.category.DEFAULT" />
 
-				<data android:mimeType="x-bitcoin/private-keys" />
+				<data android:mimeType="application/x-bitcoin-wallet-backup" />
 				<data android:mimeType="application/octet-stream" />
 			</intent-filter>
 		</activity>

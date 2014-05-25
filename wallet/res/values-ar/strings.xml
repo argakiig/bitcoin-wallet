@@ -34,7 +34,6 @@
 	<string name="wallet_transactions_fragment_coinbase">محفور</string>
 	<string name="wallet_transactions_fragment_internal">داخلي</string>
 	<string name="wallet_transactions_context_show_qr_title">عرض رمز الاستجابة السريعة QR-code</string>
-	<string name="wallet_options_backup">حفظ احتياطي للمفاتيح</string>
 	<string name="wallet_options_safety">ملاحظات السلامة</string>
 	<string name="wallet_options_donate">التبرعات</string>
 	<string name="wallet_donate_address_label">تبرع للبرنامج</string>
@@ -61,7 +60,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">لا يمكنك استخدام عنوان  %s مع هذه المحفظة!</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">لا يمكنك استخدام عنوان من شبكة مجهولة مع هذه المحفظة!</string>
 	<string name="send_coins_fragment_receiving_address_complex">مركب\nعنوان</string>
-	<string name="send_coins_fragment_pending">(جاري تأكيد مبلغ BTC %s)</string>
+	<string name="send_coins_fragment_pending">(جاري تأكيد مبلغ %s)</string>
 	<string name="send_coins_fragment_amount_label">المبلغ المطلوب دفعه</string>
 	<string name="send_coins_fragment_direct_payment_enable">إرسال الدفعة مباشرة إلى المستفيد.</string>
 	<string name="send_coins_fragment_direct_payment_ack">تم بنجاح إرسال الدفعة مباشرة.</string>

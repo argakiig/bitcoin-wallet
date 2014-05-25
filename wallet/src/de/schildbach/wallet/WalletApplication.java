@@ -85,8 +85,6 @@ public class WalletApplication extends Application
 	private Wallet wallet;
 	private PackageInfo packageInfo;
 
-	private static final int KEY_ROTATION_VERSION_CODE = 135;
-
 	private static final Logger log = LoggerFactory.getLogger(WalletApplication.class);
 
 	@Override
@@ -129,18 +127,18 @@ public class WalletApplication extends Application
 		walletFile = getFileStreamPath(Constants.WALLET_FILENAME_PROTOBUF);
 
 		loadWalletFromProtobuf();
+
+		config.updateLastVersionCode(packageInfo.versionCode);
+
+		afterLoadWallet();
+	}
+
+	private void afterLoadWallet()
+	{
 		wallet.autosaveToFile(walletFile, 1, TimeUnit.SECONDS, new WalletAutosaveEventListener());
 
 		// clean up spam
 		wallet.cleanup();
-
-		config.updateLastVersionCode(packageInfo.versionCode);
-
-		if (config.versionCodeCrossed(packageInfo.versionCode, KEY_ROTATION_VERSION_CODE))
-		{
-			log.info("detected version jump crossing key rotation");
-			wallet.setKeyRotationTime(System.currentTimeMillis() / 1000);
-		}
 
 		ensureKey();
 
@@ -235,6 +233,9 @@ public class WalletApplication extends Application
 				walletStream = new FileInputStream(walletFile);
 
 				wallet = new WalletProtobufSerializer().readWallet(walletStream);
+
+				if (!wallet.getParams().equals(Constants.NETWORK_PARAMETERS))
+					throw new UnreadableWalletException("bad wallet network parameters: " + wallet.getParams().getId());
 
 				log.info("wallet loaded from: '" + walletFile + "', took " + (System.currentTimeMillis() - start) + "ms");
 			}
@@ -491,6 +492,15 @@ public class WalletApplication extends Application
 	{
 		// actually stops the service
 		startService(blockchainServiceResetBlockchainIntent);
+	}
+
+	public void replaceWallet(final Wallet newWallet)
+	{
+		resetBlockchain(); // implicitly stops blockchain service
+		wallet.shutdownAutosaveAndWait();
+
+		wallet = newWallet;
+		afterLoadWallet();
 	}
 
 	public void broadcastTransaction(@Nonnull final Transaction tx)

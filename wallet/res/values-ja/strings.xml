@@ -34,7 +34,6 @@
 	<string name="wallet_transactions_fragment_coinbase">鉱山</string>
 	<string name="wallet_transactions_fragment_internal">内部</string>
 	<string name="wallet_transactions_context_show_qr_title">QRコードを表示</string>
-	<string name="wallet_options_backup">バックアップキー</string>
 	<string name="wallet_options_safety">安全の注意事項</string>
 	<string name="wallet_options_donate">チップ / 寄付</string>
 	<string name="wallet_donate_address_label">ビットコインウォレットへ寄付する</string>
@@ -61,7 +60,7 @@
 	<string name="send_coins_fragment_receiving_address_error_cross_network">%s アドレスはこのウォレットでは使用できません！</string>
 	<string name="send_coins_fragment_receiving_address_error_cross_network_unknown">未知のネットワークのアドレスはこのウォレットでは使用できません！</string>
 	<string name="send_coins_fragment_receiving_address_complex">複雑な\nアドレス</string>
-	<string name="send_coins_fragment_pending">(BTC %s は確認を待っています)</string>
+	<string name="send_coins_fragment_pending">(%s は確認を待っています)</string>
 	<string name="send_coins_fragment_amount_label">合計支払</string>
 	<string name="send_coins_fragment_direct_payment_enable">受取人へダイレクト送金する。</string>
 	<string name="send_coins_fragment_direct_payment_ack">ダイレクト送金が成功しました。</string>

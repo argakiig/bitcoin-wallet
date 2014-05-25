@@ -47,6 +47,9 @@ public class Constants
 
 	public static final File EXTERNAL_WALLET_BACKUP_DIR = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 	public static final String EXTERNAL_WALLET_KEY_BACKUP = "bitcoin-wallet-keys" + FILENAME_NETWORK_SUFFIX;
+	public static final String EXTERNAL_WALLET_BACKUP = "bitcoin-wallet-backup" + FILENAME_NETWORK_SUFFIX;
+
+	public static final long BACKUP_MAX_CHARS = 5000000;
 
 	public static final String BLOCKCHAIN_FILENAME = "blockchain" + FILENAME_NETWORK_SUFFIX;
 
@@ -58,7 +61,7 @@ public class Constants
 			: EXPLORE_BASE_URL_TEST;
 
 	public static final String MIMETYPE_TRANSACTION = "application/x-btctx";
-	public static final String MIMETYPE_BACKUP_PRIVATE_KEYS = "x-bitcoin/private-keys";
+	public static final String MIMETYPE_WALLET_BACKUP = "application/x-bitcoin-wallet-backup";
 
 	public static final int MAX_NUM_CONFIRMATIONS = 7;
 	public static final String USER_AGENT = "Bitcoin Wallet";
@@ -92,9 +95,9 @@ public class Constants
 
 	public static final String LICENSE_URL = "http://www.gnu.org/licenses/gpl-3.0.txt";
 	public static final String SOURCE_URL = "https://github.com/schildbach/bitcoin-wallet";
-	public static final String BINARY_URL = "http://code.google.com/p/bitcoin-wallet/downloads/list";
+	public static final String BINARY_URL = "https://github.com/schildbach/bitcoin-wallet/releases";
 	public static final String CREDITS_BITCOINJ_URL = "http://code.google.com/p/bitcoinj/";
-	public static final String CREDITS_ZXING_URL = "http://code.google.com/p/zxing/";
+	public static final String CREDITS_ZXING_URL = "https://github.com/zxing/zxing";
 	public static final String CREDITS_ICON_URL = "https://bitcointalk.org/index.php?action=profile;u=2062";
 	public static final String AUTHOR_TWITTER_URL = "https://twitter.com/#!/bitcoin_wallet";
 	public static final String AUTHOR_GOOGLEPLUS_URL = "https://profiles.google.com/andreas.schildbach";

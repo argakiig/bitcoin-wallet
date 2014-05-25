@@ -51,11 +51,12 @@ import com.google.bitcoin.uri.BitcoinURI;
 
 import de.schildbach.wallet.AddressBookProvider;
 import de.schildbach.wallet.Constants;
-import de.schildbach.wallet.PaymentIntent;
+import de.schildbach.wallet.data.PaymentIntent;
 import de.schildbach.wallet.ui.InputParser.StringInputParser;
 import de.schildbach.wallet.util.BitmapFragment;
 import de.schildbach.wallet.util.Qr;
 import de.schildbach.wallet.util.WalletUtils;
+import de.schildbach.wallet.util.WholeStringBuilder;
 import de.schildbach.wallet_test.R;
 
 /**
@@ -117,7 +118,7 @@ public final class SendingAddressesFragment extends SherlockListFragment impleme
 	{
 		super.onViewCreated(view, savedInstanceState);
 
-		setEmptyText(getString(R.string.address_book_empty_text));
+		setEmptyText(WholeStringBuilder.bold(getString(R.string.address_book_empty_text)));
 	}
 
 	@Override
